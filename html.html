@@ -1,0 +1,53 @@
+
+<html>
+  <head>
+<style>
+  .visible{
+    color:white;
+    background: black;
+  }
+  .rangeRed{
+color:red;
+  };
+</style>
+  </head>
+  <body>
+    
+    <h2 class="visible">Escoge un boton o usa las barras<span id='colorOutput'class="visible" ></span></h2>
+    <input type="text" id="colorImputText" >
+    <input type="color" id="colorImputColor"><br>
+    <label class="visible" id='labeltext'>red: </label>
+    <input type="range" id="rangeRed" value='0' min='0' max='255'><br>
+    <label class="visible" id='labeltext'>green: </label>
+    <input type="range" id="rangeGreen" value='0' min='0' max='255'><br>
+    <label class="visible" id='labeltext'>blue: </label>
+    <input type="range" id="rangeBlue" value='0' min='0' max='255'><br>
+
+    <input type="button" id="colorButton" value="Click al escoger un color" 
+    onclick="changeColor(); ">
+
+    <script>
+     
+     
+function changeColor() {
+  var color = document.getElementById("colorImputColor").value;
+  document.body.style.backgroundColor= color;
+  document.getElementById('colorImputText').value=color;
+
+}
+function rangeColor(){
+  
+var red= document.getElementById('rangeRed').value;
+var green= document.getElementById('rangeGreen').value;
+var blue= document.getElementById('rangeBlue').value;
+var color= 'rgb('+ red+','+green+','+blue+')';
+document.body.style.backgroundColor = color;
+document.getElementById('colorOutput').innerHTML = ': '+ color;
+};
+document.getElementById('rangeRed').addEventListener('input',rangeColor);
+document.getElementById('rangeGreen').addEventListener('input',rangeColor);
+document.getElementById('rangeBlue').addEventListener('input',rangeColor);
+    </script>
+
+  </body>
+</html>
